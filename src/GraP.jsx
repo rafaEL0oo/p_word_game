@@ -223,10 +223,14 @@ export default function GraP() {
     alt="Logo P Word Game" 
     className="mx-auto mb-4 w-24 h-24 object-contain" 
   />
-  <h1 className="text-3xl font-bold">Gra: "Tylko słowa na P" (wersja mobilna)</h1>
+  {showSetup && (
+    <>
+    <h1 className="text-3xl font-bold">Gra: "Tylko słowa na P" (wersja mobilna)</h1>
   <p className="text-sm text-gray-600 mt-1">
     Jedno urządzenie, naprzemienne tury drużyn. Opisywać można tylko słowami zaczynającymi się na literę "P".
   </p>
+    </>
+  )}
 </header>
 
         <section className="grid md:grid-cols-2 gap-6">
