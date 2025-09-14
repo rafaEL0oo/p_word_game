@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Logo from "/images/P_WORD_GAME_LOGO.png";
 
 // Single-file React component implementing the described game.
 // Tailwind CSS classes are used for styling (no import required here when used in a project
@@ -217,9 +218,16 @@ export default function GraP() {
     <div className="min-h-screen flex justify-center items-center bg-gray-50 p-6">
       <div className="max-w-4xl w-full mx-auto">
         <header className="mb-6">
-          <h1 className="text-3xl font-bold">Gra: "Tylko słowa na P" (wersja mobilna)</h1>
-          <p className="text-sm text-gray-600 mt-1">Jedno urządzenie, naprzemienne tury drużyn. Opisywać można tylko słowami zaczynającymi się na literę "P".</p>
-        </header>
+  <img 
+    src={Logo}
+    alt="Logo P Word Game" 
+    className="mx-auto mb-4 w-24 h-24 object-contain" 
+  />
+  <h1 className="text-3xl font-bold">Gra: "Tylko słowa na P" (wersja mobilna)</h1>
+  <p className="text-sm text-gray-600 mt-1">
+    Jedno urządzenie, naprzemienne tury drużyn. Opisywać można tylko słowami zaczynającymi się na literę "P".
+  </p>
+</header>
 
         <section className="grid md:grid-cols-2 gap-6">
           {showSetup && (
