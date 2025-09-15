@@ -1,21 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Logo from "/images/P_WORD_GAME_LOGO.png";
+import words from "./words.json"
 
 // Single-file React component implementing the described game.
 // Tailwind CSS classes are used for styling (no import required here when used in a project
 // configured with Tailwind). Default-exported component.
 
-const DEFAULT_WORDS = [
-  // Polish nouns - single words (not exhaustive). Add more as you want.
-  'samochód','dom','kot','pies','jabłko','rower','kwiat','drzewo','książka','telefon',
-  'okno','krzesło','stolik','buty','piłka','słońce','księżyc','gwiazda','chleb','mleko',
-  'góry','rzeka','morze','ptak','miś','zegar','kartka','długopis','łóżko','most',
-  'pociąg','samolot','tramwaj','apteka','szkoła','uczelnia','sklep','kino','teatr','muzeum',
-  'kawa','herbata','cukier','ser','ryba','owoce','warzywo','lampa','obraz','paczka',
-  'klucz','drzwi','talerz','widelec','nóż','okulary','torba','plecak','sukienka','koszula',
-  'butelka','zabawka','komputer','monitor','mysz','klawiatura','słuchawki','kamera','stacja','gazeta',
-  'mapa','bilet','portfel','zegarek','pierścionek','łańcuch','rękawiczka','czapka','szalik','parasol'
-];
+const DEFAULT_WORDS = words
 
 function shuffle(array) {
   const a = array.slice();
