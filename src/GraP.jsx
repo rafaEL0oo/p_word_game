@@ -99,6 +99,13 @@ export default function GraP() {
   }
 
   function markReady() {
+    // Reset timer so the next player starts with full time
+    setTimeLeft(roundSeconds);
+    // Clear any existing interval to avoid duplicate timers
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
     setWaitingForReady(false);
     setRunning(true);
   }
@@ -348,7 +355,7 @@ export default function GraP() {
 
               <div className="flex gap-2">
                 <button className="flex-1 px-3 py-2 border rounded" onClick={toggleRunning}>{running ? 'Pauza' : 'Start/Powróć'}</button>
-                <button className="flex-1 px-3 py-2 border rounded" onClick={manualNextTurn}>Koniec tury (przejdź)</button>
+                <button className="flex-1 px-3 py-2 border rounded" onClick={manualNextTurn}>Koniec tury (pomiń)</button>
               </div>
 
               <div className="mt-4">
@@ -378,7 +385,7 @@ export default function GraP() {
                   <li key={i} className="border-b py-1">
                     {h.type==='correct' && (<span>+2: Drużyna {h.team===0? 'A' : 'B'} — słowo <strong>{h.word}</strong></span>)}
                     {h.type==='skip' && (<span>-1: Drużyna {h.team===0? 'A' : 'B'} — pominięte <strong>{h.word}</strong></span>)}
-                    {h.type==='round_end' && (<span>~ Koniec rundy dla drużyny {h.team===0? 'A' : 'B'} (zostało {h.timeLeft}s)</span>)}
+                    {h.type==='round_end' && (<span>~ Koniec rundy dla drużyny {h.team===0? 'A' : 'B'}</span>)}
                   </li>
                 ))}
               </ul>
